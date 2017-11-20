@@ -1,8 +1,11 @@
-# Env
+# Build your own blog with github+Jekyll
+Here are many ways to build your own web, e.g. you can your `wordpress` and lots of blog platforms, e.g. yahoo, sina or google, but if you want to build your own blog site, you can use wordpress/discuz/droplets+vpn/vps, it need more IT skills, here I will introduce a light way: build your own blog with github.io+jekyll support.  
+
+## Environment 
 OS : macOS High Sierra
-# Mac port
+## Mac port
 Make sure that mac port installed, you can ref [Installing mac ports](https://www.macports.org/install.php)
-# Install ruby & jekyll
+## Install ruby & jekyll
 I install ruby by mac port, and also you can use brew, Here I will install the latest ruby with mac port, make sure that mac port are installed.
 
 First, find the latest ruby, open a terminal and input
@@ -49,7 +52,7 @@ sudo port install ruby24
 ```
 After the installation, you will find that the ruby24 was installed on path `/opt/local/bin`, you can find `ruby24` and `gem24` in it. 
 
-# config
+## config
 1. creating two symbol links 
 ```
 sudo ln -s /opt/local/bin/ruby2.4 /opt/local/bin/ruby
@@ -66,14 +69,31 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export GEM_HOME=<your user home path>/.gem
 ```
 4. make config effective, use `source ~/.profile`
-# Install bounder and jekyll
+## Install bounder and jekyll
 Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed
 ```
 gem install bundler
 gem install jekyll
 ```
+## create a github
+## create a Jekyll project
+## bind your own domain 
+1. First bind your domain in github
+login your count, and go the `<yourname>.github.io`, go to `settings` -> `GitHub Pages` -> `Custom domain`, and input your domain name, such as `example.com`. details 
+ref [Adding or removing a custom domain for your GitHub Pages site](https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/)
+2. Bind you github path with domain
+let's us godaddy as example, in the domain management, add a `A` Host record point to github server, two candidate ip address is 
+```
+192.30.252.153
+192.30.252.154
+```
+<br>
+and then add a `CNAME` record point to your page address as `{yourname}.github.io`. after 5 minutes, it will take effect, maybe more, it depends. 
+
+details ref [Setting up an apex domain](https://help.github.com/articles/setting-up-an-apex-domain/)
 
 # reference
+[Bind your domain with github page](http://www.cnblogs.com/openxxs/p/5950598.html)<br>
 [Jekyll中文](http://jekyllcn.com/docs/templates/)<br/>
 [Massive jekyll themes](http://jekyllthemes.org)<br/>
 [利用github-pages建立个人博客](https://www.ezlippi.com/blog/2015/03/github-pages-blog.html)<br/>
